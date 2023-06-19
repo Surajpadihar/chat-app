@@ -6,13 +6,18 @@ import { auth, db, storage } from "../firebas/firebase";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { doc, setDoc } from "firebase/firestore";
 import { useNavigate, Link } from "react-router-dom";
+import { TailSpin } from "react-loader-spinner";
+import swal from "sweetalert";
 
 const Register = () => {
   const [err, setErr] = useState(false);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
+ 
+
   const handleSubmit = async (e) => {
+    
     setLoading(true);
     e.preventDefault();
     const displayName = e.target[0].value;
@@ -46,17 +51,27 @@ const Register = () => {
 
             //create empty user chats on firestore
             await setDoc(doc(db, "userChats", res.user.uid), {});
+            swal({
+              text: "Sucessfully Registered",
+              icon: "success",
+              buttons: false,
+              timer: 3000,
+            });
             navigate("/");
+            
           } catch (err) {
+
             console.log(err);
             setErr(true);
             setLoading(false);
+           
           }
         });
       });
     } catch (err) {
       setErr(true);
       setLoading(false);
+      
     }
   };
 
@@ -75,12 +90,13 @@ const Register = () => {
             <AddPhotoAlternateRoundedIcon />
             <span>Add an avatar</span>
           </label>
-          <button disabled={loading}>Sign up</button>
-          {loading && "Uploading and compressing the image please wait..."}
+          <button> {loading ? <TailSpin height={25} color="white"/> : 'Sign up'} </button>
+          {/* {loading && "Uploading and compressing the image please wait..."} */}
+          {/* {loading ? <TailSpin height={25} color="white"/> : 'Sign up'} */}
           {err && <span>Something went wrong</span>}
         </form>
         <p>
-          You do have an account? <Link to="/register">Login</Link>
+          You do have an account? <Link to="/login">Login</Link>
         </p>
       </div>
     </div>

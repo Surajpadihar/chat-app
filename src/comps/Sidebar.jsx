@@ -3,12 +3,13 @@ import Navbar from "./Navbar"
 import Search from "./Search"
 import Chats from "./Chats"
 
-const Sidebar = () => {
+const Sidebar = (props) => {
+  const {isMobile} = props.isMobile;
   return (
     <div className="sidebar">
       <Navbar />
       <Search/>
-      <Chats/>
+      <Chats isMobile={isMobile}/>
     </div>
   );
 };

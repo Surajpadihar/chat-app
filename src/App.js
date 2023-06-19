@@ -6,6 +6,9 @@ import Home from "./component/Home";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "./context/AuthContext"
+import Chat from "./comps/Chat";
+import Message from "./comps/Message";
+import Input from "./comps/Input";
 
 
 function App() {
@@ -32,6 +35,7 @@ function App() {
             }
           />
           <Route path="login" element={<Login />} />
+          <Route path="chat" element={<Chat />} />
           <Route path="register" element={<Register />} />
         </Route>
       </Routes>
