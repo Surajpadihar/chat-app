@@ -47,7 +47,7 @@ const Login = () => {
           <input type="email" placeholder="email" />
           <input type="password" placeholder="password" />
           <button>{loading ? <TailSpin height={25} color="white"/> : 'Login'}</button>
-          {/* {err && <span>Something went wrong</span>} */}
+          {err && <span></span>}
         </form>
         <p>You don't have an account? <Link to="/register">Register</Link></p>
       </div>

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Sidebar from '../comps/Sidebar'
 import Chat from '../comps/Chat'
-import { Link } from 'react-router-dom';
+
 // import { useMediaQuery } from 'react-responsive';
 
  

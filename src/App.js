@@ -7,8 +7,7 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "./context/AuthContext"
 import Chat from "./comps/Chat";
-import Message from "./comps/Message";
-import Input from "./comps/Input";
+
 
 
 function App() {
